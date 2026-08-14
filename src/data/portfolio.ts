@@ -38,7 +38,7 @@ export interface DeveloperInfo {
 }
 
 export const developerInfo: DeveloperInfo = {
-  name: "Arthur Silva",
+  name: "Paulo de Tarso",
   role: "Full-Stack Developer",
   headline: "Criando experiências digitais de alta performance e alto impacto visual.",
   subheadline: "Especialista em Next.js, React e ecossistemas TypeScript, desenvolvendo soluções robustas que unem design sofisticado e código impecável.",
@@ -58,14 +58,14 @@ export const developerInfo: DeveloperInfo = {
   socials: {
     github: "https://github.com",
     linkedin: "https://linkedin.com",
-    email: "arthursilvadev@example.com",
+    email: "paulodetarsodev@example.com",
     twitter: "https://twitter.com"
   }
 };
 
 export const skillCategories: SkillCategory[] = [
   {
-    name: "Front-end Premium",
+    name: "Front end premium",
     skills: [
       { name: "React / Next.js (App Router)", level: "Expert", icon: "Code2" },
       { name: "TypeScript", level: "Expert", icon: "ShieldAlert" },
@@ -75,7 +75,7 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    name: "Back-end & APIs",
+    name: "Backends & APIs",
     skills: [
       { name: "Node.js / Express", level: "Advanced", icon: "Cpu" },
       { name: "GraphQL / REST APIs", level: "Advanced", icon: "GitMerge" },
@@ -84,7 +84,7 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    name: "Metodologias & Ferramentas",
+    name: "Metodologias e Ferramentas",
     skills: [
       { name: "Git / GitHub CI-CD", level: "Expert", icon: "GitBranch" },
       { name: "Testes (Jest, Playwright)", level: "Advanced", icon: "CheckSquare" },

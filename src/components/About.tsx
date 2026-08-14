@@ -1,10 +1,13 @@
 'use strict';
 
-import React from 'react';
-import { Award, Terminal, Coffee } from 'lucide-react';
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { Award, Terminal, Coffee, User } from 'lucide-react';
 import { developerInfo } from '@/data/portfolio';
 
 export default function About() {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <section
       id="sobre-mim"
@@ -30,26 +33,46 @@ export default function About() {
           {/* Left Column: Image Area & Quick Stats Card */}
           <div className="lg:col-span-5 space-y-8">
             <div className="relative group rounded-3xl overflow-hidden aspect-[4/5] bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-white/10 p-2 shadow-2xl">
-              {/* Photo Frame Effect */}
-              <div className="absolute inset-2 rounded-[22px] bg-gray-950/90 z-0 flex flex-col items-center justify-center p-6 text-center border border-white/5">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 flex items-center justify-center mb-4 text-3xl font-extrabold text-white shadow-xl">
-                  {developerInfo.name.charAt(0)}
-                </div>
-                <h3 className="text-lg font-bold text-gray-200">{developerInfo.name}</h3>
-                <p className="text-xs font-mono text-indigo-400 mt-1">{developerInfo.role}</p>
+              {/* Photo Frame Effect / Reserved Photo Space */}
+              <div className="relative w-full h-full rounded-[22px] bg-gray-950/90 overflow-hidden flex flex-col items-center justify-center border border-white/5">
+                {!imgError && developerInfo.about.photoUrl ? (
+                  <>
+                    <Image
+                      src={developerInfo.about.photoUrl}
+                      alt={`Foto profissional de ${developerInfo.name}`}
+                      fill
+                      unoptimized
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      onError={() => setImgError(true)}
+                    />
+                    {/* Subtle overlay with Name & Role at the bottom of the photo */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/20 to-transparent flex flex-col justify-end p-6 z-10 pointer-events-none">
+                      <h3 className="text-xl font-bold text-white drop-shadow">{developerInfo.name}</h3>
+                      <p className="text-xs font-mono text-indigo-300 mt-0.5">{developerInfo.role}</p>
+                    </div>
+                  </>
+                ) : (
+                  <div className="p-6 text-center flex flex-col items-center justify-center w-full h-full">
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 flex items-center justify-center mb-4 text-3xl font-extrabold text-white shadow-xl">
+                      <User size={40} className="text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-200">{developerInfo.name}</h3>
+                    <p className="text-xs font-mono text-indigo-400 mt-1">{developerInfo.role}</p>
 
-                {/* Decorative developer environment illustration inside the placeholder */}
-                <div className="mt-8 text-left font-mono text-[10px] text-gray-500 border border-white/5 p-4 rounded-xl bg-black/40 w-full overflow-hidden leading-relaxed">
-                  <p className="text-cyan-400">const developer = &#123;</p>
-                  <p className="pl-4">name: <span className="text-amber-300">&quot;{developerInfo.name}&quot;</span>,</p>
-                  <p className="pl-4">role: <span className="text-amber-300">&quot;{developerInfo.role}&quot;</span>,</p>
-                  <p className="pl-4">passion: <span className="text-amber-300">&quot;Modern Clean UI&quot;</span></p>
-                  <p className="text-cyan-400">&#125;;</p>
-                </div>
+                    {/* Decorative developer environment illustration inside the placeholder */}
+                    <div className="mt-8 text-left font-mono text-[10px] text-gray-500 border border-white/5 p-4 rounded-xl bg-black/40 w-full overflow-hidden leading-relaxed">
+                      <p className="text-cyan-400">const developer = &#123;</p>
+                      <p className="pl-4">name: <span className="text-amber-300">&quot;{developerInfo.name}&quot;</span>,</p>
+                      <p className="pl-4">role: <span className="text-amber-300">&quot;{developerInfo.role}&quot;</span>,</p>
+                      <p className="pl-4">passion: <span className="text-amber-300">&quot;Modern Clean UI&quot;</span></p>
+                      <p className="text-cyan-400">&#125;;</p>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Aesthetic Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-60 pointer-events-none" />
             </div>
 
             {/* Quick Metrics Cards */}

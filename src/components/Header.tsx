@@ -76,13 +76,13 @@ export default function Header() {
           href="#inicio"
           onClick={(e) => handleNavClick(e, '#inicio')}
           className="flex items-center gap-2 group focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400"
-          aria-label="Arthur Silva - Voltar ao início"
+          aria-label={`${developerInfo.name} - Voltar ao início`}
         >
           <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">
             {developerInfo.name.split(' ')[0]}
           </span>
           <span className="text-xl font-light text-gray-400 tracking-tight group-hover:text-gray-200 transition-colors">
-            {developerInfo.name.split(' ')[1]}
+            {developerInfo.name.split(' ').slice(1).join(' ')}
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
         </a>
