@@ -44,9 +44,10 @@ export default function Skills() {
         </div>
 
         {/* Dynamic Category Filtering & Grid presentation */}
-        <div className="flex flex-wrap gap-3 mb-10">
+        <div className="flex flex-wrap gap-3 mb-10" role="tablist" aria-label="Filtro de habilidades por categoria">
           <button
             onClick={() => setSelectedCategory(null)}
+            aria-pressed={selectedCategory === null}
             className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold tracking-wide border transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400 ${
               selectedCategory === null
                 ? 'bg-indigo-500 text-white border-indigo-500 shadow-md shadow-indigo-500/10'
@@ -59,6 +60,7 @@ export default function Skills() {
             <button
               key={cat.name}
               onClick={() => setSelectedCategory(idx)}
+              aria-pressed={selectedCategory === idx}
               className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold tracking-wide border transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400 ${
                 selectedCategory === idx
                   ? 'bg-indigo-500 text-white border-indigo-500 shadow-md shadow-indigo-500/10'

@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Arthur Silva | Full-Stack Developer Portfolio",
-  description: "Portfólio de Arthur Silva, Desenvolvedor Full-Stack especializado em Next.js, React e TypeScript. Projetando soluções digitais premium e de alta performance.",
-  keywords: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Arthur Silva", "Full Stack", "Portfolio"],
-  authors: [{ name: "Arthur Silva" }],
+  title: "Paulo de Tarso | Full-Stack Developer Portfolio",
+  description: "Portfólio de Paulo de Tarso, Desenvolvedor Full-Stack especializado em Next.js, React e TypeScript. Projetando soluções digitais premium e de alta performance.",
+  keywords: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Paulo de Tarso", "Full Stack", "Portfolio"],
+  authors: [{ name: "Paulo de Tarso" }],
 };
 
 export const viewport: Viewport = {
